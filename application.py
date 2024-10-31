@@ -1,6 +1,5 @@
 from flask import Flask,request, render_template 
-import pickle,joblib 
-import numpy as np 
+import pickle
 app = Flask(__name__, template_folder='templates') 
 model=pickle.load(open('./LogReg.pickle','rb')) 
 vectoriser = pickle.load(open('./vectoriser.pickle','rb')) 
@@ -9,13 +8,13 @@ preprocess = dill.load(open('./PreProcess.dill','rb'))
  
 @app.route('/') 
 def hello_world():
-    return render_template("index.html",word='{Enter text}',pred='{Enter text}') 
+    return render_template("index.html",word='{Enter text}',pred='{Enter text}')
  
 @app.route('/predictLR',methods=['POST','GET'])
 def predict(): 
     i ='' 
     for key, value in request.form.items(): 
-        if key == 'text':  # Replace 'input1', 'input2' with your desired input keys 
+        if key == 'text':
             i = value 
     text =[] 
     text.append(i) 
