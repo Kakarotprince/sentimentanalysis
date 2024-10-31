@@ -2,9 +2,6 @@ from flask import Flask,request, render_template
 import pickle,joblib 
 import numpy as np 
 app = Flask(__name__, template_folder='templates') 
-import os 
-path=os.chdir(str('C:/Users/arunp/OneDrive/Desktop/Sentiment Analysis/flask')) 
- 
 model=pickle.load(open('./LogReg.pickle','rb')) 
 vectoriser = pickle.load(open('./vectoriser.pickle','rb')) 
 import dill  
