@@ -35,4 +35,4 @@ def predict():
         return render_template('index.html',word=i,pred='Super Negative ') 
  
 if __name__ == '__main__': 
-    app.run(debug=False) 
+    app.run(debug=True) 
