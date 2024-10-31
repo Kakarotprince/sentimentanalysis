@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif; /* Added a font for better readability */
+        }
+
+        .container {
+            text-align: center;
+            background-color: aliceblue;
+            min-height: 100vh;
+            width: 100%;
+            position: relative; /* Changed from absolute to relative */
+            padding: 20px; /* Added padding for better spacing */
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            background-color: black;
+            color: rgb(0, 149, 255);
+            padding: 10px;
+            align-items: center; /* Center items vertically */
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px; /* Adjust font size */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            margin-left: auto; /* Align to the right */
+        }
+
+        nav li {
+            padding-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(0, 149, 255);
+        }
+
+        table {
+            margin: auto;
+            width: 100%; /* Full width for responsiveness */
+            max-width: 600px; /* Max width for larger screens */
+        }
+
+        td, tr {
+            padding: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: rgb(0, 149, 255);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0px 3px 10px black;
+            text-decoration: none;
+            display: inline-block; /* Allow margins */
+            margin-top: 10px; /* Space above the button */
+        }
+
+        .btn:active {
+            box-shadow: 0px 0px 3px black;
+            transform: scaleY(0.95); /* Adjust for button press effect */
+        }
+
+        label {
+            color: rgb(0, 149, 255);
+            font-weight: 900;
+        }
+
+        #label {
+            text-align: start;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        #predictionContainer {
+            margin: 20px auto; /* Center the prediction container */
+            max-width: 600px; /* Max width for larger screens */
+            padding: 10px; /* Added padding for spacing */
+            background-color: white; /* Background color for contrast */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+        }
+
+        @media (max-width: 600px) {
+            nav h1 {
+                font-size: 18px; /* Smaller font for smaller screens */
+            }
+
+            .btn {
+                width: 100%; /* Full width for buttons on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section no-pad-bot" id="index-banner">
+        <nav>
+            <h1>Sentiment Analysis</h1>
+            <ul>
+                <!-- Example navigation items, uncomment to use -->
+                <!--
+                <li><a href="/">Home</a></li>
+                <li><a href="/LR">Linear Regression</a></li>
+                <li><a href="/SVM">SVM</a></li>
+                -->
+            </ul>
+        </nav>
+        <div class="container">
+            <h2>Analyse whether the input is positive or negative.</h2>
+
+            <form action='/predictLR' method="post">
+                <table>
+                    <tr>
+                        <td id="label">
+                            <label for="text">Enter Text:</label>
+                        </td>
+                        <td>
+                            <input placeholder="I am happy..." name="text" type="text" required>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn">Analyse</button>
+            </form>
+            <div id="predictionContainer">
+                <h1>Input text is <em style="color: rgb(0,149,255);">{{word}}</em></h1>
+                <h3>The Sentiment of the given text is <em style="color: rgb(0,149,255);">{{pred}}</em></h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
