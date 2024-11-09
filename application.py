@@ -1,4 +1,5 @@
 from flask import Flask,request, render_template 
+from urllib.parse import quote as url_quote
 import pickle
 app = Flask(__name__, template_folder='templates') 
 model=pickle.load(open('./LogReg.pickle','rb')) 
