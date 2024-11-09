@@ -18,11 +18,9 @@ def predict():
         if key == 'text':
             i = value
     text = [i]
-    print(text)
     textdata = vectoriser.transform(preprocess(text))
     sentiment = model.predict_proba(textdata)
     pp = sentiment[0][1]
-    print(pp)
 
     if pp > 0.90:
         return render_template('index.html', word=i, pred='Super Positive')
@@ -37,4 +35,4 @@ def predict():
 
  
 if __name__ == '__main__': 
-    app.run(debug=True) 
+    app.run(debug=False) 
