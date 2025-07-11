@@ -1,5 +1,7 @@
 from flask import Flask,request, render_template
 import pickle
+import nltk
+nltk.download('wordnet')
 app = Flask(__name__, template_folder='templates') 
 model=pickle.load(open('./LogReg.pickle','rb')) 
 vectoriser = pickle.load(open('./vectoriser.pickle','rb')) 
